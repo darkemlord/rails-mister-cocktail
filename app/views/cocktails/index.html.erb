@@ -1,0 +1,61 @@
+<!-- Navbar -->
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to "#", class: "navbar-brand" do %>
+    <%= image_tag "logo.png" %>
+  <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item mr-3 ml-3">
+        <%= link_to "Home", :cocktails%>
+      </li>
+      <li class="nav-item mr-3 ml-3">
+        <%= link_to "Create a Cocktail", :new_cocktail %>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- Banner -->
+<div class="banner-container d-flex">
+  <%= image_tag "bar.jpg", class:"banner-img" %>
+  <div class="container d-flex flex-column justify-content-center">
+      <h1>Mister Cocktail</h1>
+      <p>The best place to get your favorite coctels!</p>
+      <%= link_to "Create a cocktail now!", :new_cocktail, class:"btn btn-primary" %>
+  </div>
+</div>
+
+<div class="container-fluid pt-4 text-center pb-4" id="title">
+  <h1>Your Cocktails!</h1>
+</div>
+
+<div class="container-fluid d-flex justify-content-around p-0 mt-4 mb-4" id="card-ema-container">
+  <% @cocktails.each do |cocktail|%>
+  <div class="card-ema mr-2 ml-2">
+    <%= image_tag "https://www.recipetineats.com/wp-content/uploads/2019/10/Cosmopolitan-cocktail_0.jpg", class: 'card-ema-img' %>
+    <%= link_to cocktail_path(cocktail.id) do %>
+      <h3><%= cocktail.name %></h3>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+
+<div class="container-fluid pt-4 text-center pb-4" id="title">
+  <h1>Popular cocktails!</h1>
+</div>
+
+<div class="container-fluid d-flex justify-content-around p-0 mt-4 mb-4" id="card-ema-container">
+  <% @cocktails.sample(4).each do |cocktail|%>
+  <div class="card-ema mr-2 ml-2">
+    <%= image_tag "https://www.recipetineats.com/wp-content/uploads/2019/10/Cosmopolitan-cocktail_0.jpg", class: 'card-ema-img' %>
+    <%= link_to cocktail_path(cocktail.id) do %>
+      <h3><%= cocktail.name %></h3>
+    <% end %>
+  </div>
+  <% end %>
+</div>

@@ -1,0 +1,19 @@
+.banner-container{
+  width: 100%;
+  height: 500px;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
+  h1{
+    color: white;
+  }
+  p{
+    color: white;
+  }
+}
+
+.banner-img{
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+  height: 500px;
+  z-index: -1;
+}
