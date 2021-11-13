@@ -20,16 +20,21 @@
     </ul>
   </div>
 </div>
-
+<!--content-->
 <div class="banner-container d-flex">
   <%= image_tag "cocktail_banner.jpg", class:"banner-img" %>
   <div class="container d-flex flex-column justify-content-around text-center p-5">
       <h1><%= @cocktail.name %></h1>
+      <div class="container d-flex justify-content-center">
       <% @cocktail.doses.each do |dose| %>
-        <h2><%= dose.ingredient.name %></h2>
-        <p><%= dose.description %></p>
-        <%= link_to "remove dose", dose_path(dose), method: :delete, class:"btn btn-danger"%>
+        <div class="card-cocktail ml-2 mr-2">
+          <h2><%= dose.ingredient.name %></h2>
+          <p><%= dose.description %></p>
+          <%= link_to "remove dose", dose_path(dose), method: :delete, class:"btn btn-danger"%>
+        </div>
       <% end %>
+      </div>
+
       <%= link_to "Add your dose!", new_cocktail_dose_path(@cocktail), class:"btn btn-primary" %>
   </div>
 </div>

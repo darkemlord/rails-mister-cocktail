@@ -30,14 +30,15 @@
   </div>
 </div>
 
-<div class="container-fluid pt-4 text-center pb-4" id="title">
+<div class="container-fluid pt-4 pb-4 pl-5" id="title">
   <h1>Your Cocktails!</h1>
 </div>
 
 <div class="container-fluid d-flex justify-content-around p-0 mt-4 mb-4" id="card-ema-container">
   <% @cocktails.each do |cocktail|%>
+  <% cocktail_img = %w[fire.jpg darkcocktail.jpg cocktail3.jpg cocktail4.jpg cocktail5.jpg] %>
   <div class="card-ema mr-2 ml-2">
-    <%= image_tag "https://www.recipetineats.com/wp-content/uploads/2019/10/Cosmopolitan-cocktail_0.jpg", class: 'card-ema-img' %>
+    <%= image_tag File.exist?("app/assets/images/#{cocktail.name.delete(' ')}.jpg") ? "#{cocktail.name.delete(' ')}.jpg" : cocktail_img.sample , class: 'card-ema-img' %>
     <%= link_to cocktail_path(cocktail.id) do %>
       <h3><%= cocktail.name %></h3>
     <% end %>
@@ -45,14 +46,15 @@
   <% end %>
 </div>
 
-<div class="container-fluid pt-4 text-center pb-4" id="title">
+<div class="container-fluid pt-4 pb-4 pl-5" id="title">
   <h1>Popular cocktails!</h1>
 </div>
 
 <div class="container-fluid d-flex justify-content-around p-0 mt-4 mb-4" id="card-ema-container">
   <% @cocktails.sample(4).each do |cocktail|%>
+  <% cocktail_img = %w[darkcocktail.jpg fire.jpg cocktail3.jpg cocktail4.jpg cocktail5.jpg] %>
   <div class="card-ema mr-2 ml-2">
-    <%= image_tag "https://www.recipetineats.com/wp-content/uploads/2019/10/Cosmopolitan-cocktail_0.jpg", class: 'card-ema-img' %>
+    <%= image_tag  cocktail_img.sample, class: 'card-ema-img' %>
     <%= link_to cocktail_path(cocktail.id) do %>
       <h3><%= cocktail.name %></h3>
     <% end %>
