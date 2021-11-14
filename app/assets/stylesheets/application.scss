@@ -17,6 +17,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300&display=swap');
 
 $fontcolor: #526981;
+input:focus, textarea:focus, select:focus{
+        outline: none;
+        border: none;
+}
+
 body{
   background-image: url("background.jpg") ;
   background-repeat: repeat;
@@ -24,8 +29,12 @@ body{
   color: white;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, .string{
   font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.string{
+  font-size: 18px;
 }
 
 p{

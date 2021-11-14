@@ -55,3 +55,61 @@
   }
 
 }
+
+@media (min-width: 100px) and (max-width: 568px ) {
+  .card-cocktail{
+    width: 5rem;
+    height: 8rem;
+    background-position: -20px 0px;
+    h2{
+      font-size: 20px;
+    }
+    p{
+      font-size: 15px;
+    }
+  }
+
+  .card-ema{
+    width: 4rem;
+    height: 6.5rem;
+  }
+
+  .card-ema-img{
+    width: 4rem;
+    height: 6.5rem;
+  }
+
+  h3{
+    font-size: 20px;
+  }
+}
+
+
+
+@media (min-width: 568px) and (max-width: 1024px) {
+  .card-cocktail{
+    width: 10rem;
+    height: 15rem;
+    background-position: -30px 0px;
+    h2{
+      font-size: 20px;
+    }
+    p{
+      font-size: 15px;
+    }
+  }
+
+  .card-ema{
+    width: 8rem;
+    height: 11rem;
+  }
+
+  .card-ema-img{
+    width: 8rem;
+    height: 11rem;
+  }
+
+  h3{
+    font-size: 25px;
+  }
+}

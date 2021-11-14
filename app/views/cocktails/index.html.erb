@@ -1,6 +1,6 @@
 <!-- Navbar -->
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
+  <%= link_to :cocktails, class: "navbar-brand" do %>
     <%= image_tag "logo.png" %>
   <% end %>
 
@@ -26,7 +26,7 @@
   <div class="container d-flex flex-column justify-content-center">
       <h1>Mister Cocktail</h1>
       <p>The best place to get your favorite coctels!</p>
-      <%= link_to "Create a cocktail now!", :new_cocktail, class:"btn btn-primary" %>
+      <%= link_to "Create a cocktail now!", :new_cocktail, class:"btn btn-ghost" %>
   </div>
 </div>
 
@@ -35,7 +35,7 @@
 </div>
 
 <div class="container-fluid d-flex justify-content-around p-0 mt-4 mb-4" id="card-ema-container">
-  <% @cocktails.each do |cocktail|%>
+  <% @cocktails.first(5).each do |cocktail|%>
   <% cocktail_img = %w[fire.jpg darkcocktail.jpg cocktail3.jpg cocktail4.jpg cocktail5.jpg] %>
   <div class="card-ema mr-2 ml-2">
     <%= image_tag File.exist?("app/assets/images/#{cocktail.name.delete(' ')}.jpg") ? "#{cocktail.name.delete(' ')}.jpg" : cocktail_img.sample , class: 'card-ema-img' %>
@@ -51,7 +51,7 @@
 </div>
 
 <div class="container-fluid d-flex justify-content-around p-0 mt-4 mb-4" id="card-ema-container">
-  <% @cocktails.sample(4).each do |cocktail|%>
+  <% @cocktails.sample(5).each do |cocktail|%>
   <% cocktail_img = %w[darkcocktail.jpg fire.jpg cocktail3.jpg cocktail4.jpg cocktail5.jpg] %>
   <div class="card-ema mr-2 ml-2">
     <%= image_tag  cocktail_img.sample, class: 'card-ema-img' %>

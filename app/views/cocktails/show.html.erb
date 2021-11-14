@@ -1,6 +1,6 @@
 <!-- Navbar-->
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
+  <%= link_to :cocktails, class: "navbar-brand" do %>
     <%= image_tag "logo.png" %>
   <% end %>
 
@@ -28,13 +28,16 @@
       <div class="container d-flex justify-content-center">
       <% @cocktail.doses.each do |dose| %>
         <div class="card-cocktail ml-2 mr-2">
+          <%= link_to  dose_path(dose), method: :delete, class:"btn btn-icon", data: { confirm: "delete #{dose.ingredient.name} " } do%>
+            <em class="far fa-trash-alt"></em>
+          <% end %>
           <h2><%= dose.ingredient.name %></h2>
           <p><%= dose.description %></p>
-          <%= link_to "remove dose", dose_path(dose), method: :delete, class:"btn btn-danger"%>
+
         </div>
       <% end %>
       </div>
 
-      <%= link_to "Add your dose!", new_cocktail_dose_path(@cocktail), class:"btn btn-primary" %>
+      <%= link_to "Add your dose!", new_cocktail_dose_path(@cocktail), class:"btn btn-ghost w-100" %>
   </div>
 </div>
