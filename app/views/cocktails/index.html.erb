@@ -38,7 +38,11 @@
   <% @cocktails.first(5).each do |cocktail|%>
   <% cocktail_img = %w[fire.jpg darkcocktail.jpg cocktail3.jpg cocktail4.jpg cocktail5.jpg] %>
   <div class="card-ema mr-2 ml-2">
-    <%= image_tag File.exist?("app/assets/images/#{cocktail.name.delete(' ')}.jpg") ? "#{cocktail.name.delete(' ')}.jpg" : cocktail_img.sample , class: 'card-ema-img' %>
+    <% if cocktail.photo.attached? %>
+        <%= cl_image_tag cocktail.photo.key, class:'card-ema-img'%>
+      <% else  %>
+        <%= image_tag File.exist?("app/assets/images/#{cocktail.name.delete(' ')}.jpg") ? "#{cocktail.name.delete(' ')}.jpg" : cocktail_img.sample , class: 'card-ema-img' %>
+    <% end %>
     <%= link_to cocktail_path(cocktail.id) do %>
       <h3><%= cocktail.name %></h3>
     <% end %>
