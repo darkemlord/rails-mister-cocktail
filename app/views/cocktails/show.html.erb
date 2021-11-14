@@ -21,7 +21,7 @@
   </div>
 </div>
 <!--content-->
-<div class="banner-container d-flex">
+<div class="banner-container d-flex pt-5">
   <%= image_tag "cocktail_banner.jpg", class:"banner-img" %>
   <div class="container d-flex flex-column justify-content-around text-center p-5">
       <h1><%= @cocktail.name %></h1>
@@ -38,6 +38,6 @@
       <% end %>
       </div>
 
-      <%= link_to "Add your dose!", new_cocktail_dose_path(@cocktail), class:"btn btn-ghost w-100" %>
+      <%= link_to "Add your dose!", new_cocktail_dose_path(@cocktail), class:"btn btn-ghost w-100 mt-3" %>
   </div>
 </div>
