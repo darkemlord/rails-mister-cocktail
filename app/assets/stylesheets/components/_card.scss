@@ -56,10 +56,15 @@
 
 }
 
+.card-show{
+  width: 20rem;
+  height: 25rem;
+}
+
 @media (min-width: 100px) and (max-width: 568px ) {
   .card-cocktail{
-    width: 5rem;
-    height: 8rem;
+    width: 7rem;
+    height: 9rem;
     background-position: -20px 0px;
     h2{
       font-size: 20px;

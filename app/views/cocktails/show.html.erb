@@ -21,19 +21,23 @@
   </div>
 </div>
 <!--content-->
-<div class="banner-container d-flex pt-5">
-  <%= image_tag "cocktail_banner.jpg", class:"banner-img" %>
+<div class="banner-show d-flex justify-content-center">
+  <% if @cocktail.photo.attached? %>
+      <%= cl_image_tag @cocktail.photo.key, class: "banner-show-img" %>
+    <% else %>
+      <% cocktail_img = %w[fire.jpg darkcocktail.jpg cocktail3.jpg cocktail4.jpg cocktail5.jpg] %>
+      <%= image_tag File.exist?("app/assets/images/#{@cocktail.name.delete(' ')}.jpg") ? "#{@cocktail.name.delete(' ')}.jpg" : cocktail_img.sample , class: 'banner-show-img' %>
+    <% end %>
   <div class="container d-flex flex-column justify-content-around text-center p-5">
       <h1><%= @cocktail.name %></h1>
-      <div class="container d-flex justify-content-center">
+      <div class="container d-flex justify-content-center flex-wrap">
       <% @cocktail.doses.each do |dose| %>
-        <div class="card-cocktail ml-2 mr-2">
+        <div class="card-cocktail ml-2 mr-2 mt-3" >
           <%= link_to  dose_path(dose), method: :delete, class:"btn btn-icon", data: { confirm: "delete #{dose.ingredient.name} " } do%>
             <em class="far fa-trash-alt"></em>
           <% end %>
           <h2><%= dose.ingredient.name %></h2>
           <p><%= dose.description %></p>
-
         </div>
       <% end %>
       </div>
