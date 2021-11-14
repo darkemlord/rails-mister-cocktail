@@ -20,6 +20,7 @@
     </ul>
   </div>
 </div>
+<div class="clear-fix"></div>
 <!--content-->
 <div class="banner-show d-flex justify-content-center">
   <% if @cocktail.photo.attached? %>
@@ -28,7 +29,7 @@
       <% cocktail_img = %w[fire.jpg darkcocktail.jpg cocktail3.jpg cocktail4.jpg cocktail5.jpg] %>
       <%= image_tag File.exist?("app/assets/images/#{@cocktail.name.delete(' ')}.jpg") ? "#{@cocktail.name.delete(' ')}.jpg" : cocktail_img.sample , class: 'banner-show-img' %>
     <% end %>
-  <div class="container d-flex flex-column justify-content-around text-center p-5">
+  <div class="container d-flex flex-column justify-content-between text-center p-5">
       <h1><%= @cocktail.name %></h1>
       <div class="container d-flex justify-content-center flex-wrap">
       <% @cocktail.doses.each do |dose| %>
